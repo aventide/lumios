@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Stage } from '@inlet/react-pixi';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Walls from './components/Walls';
+import Lightbeam from './components/Lightbeam';
+import Octastage from './components/Octastage';
 
-export default App;
+import {
+  stageWidth,
+  stageWidthUnits,
+  stageHeightUnits,
+  stageHeight,
+} from './constants';
+
+export default function App() {
+  const [series, setSeries] = React.useState([
+    {
+      x: Math.floor(stageWidthUnits / 2),
+      y: Math.floor(stageHeightUnits / 2)
+    }
+  ])
+
+  function onBuild({ x, y }) {
+    setSeries([
+      ...series,
+      { x, y }
+    ])
+  }
+
+  return <Stage width={stageWidth} height={stageHeight} options={{ backgroundColor: 0xa2a2a2, antialias: false }} >
+    <Walls anchor={{
+      x: 0,
+      y: 0
+    }} end={{
+      x: stageWidth,
+      y: stageHeight
+    }} />
+    <Lightbeam series={series} />
+    <Octastage onBuild={onBuild} series={series} />
+  </Stage>
+};
