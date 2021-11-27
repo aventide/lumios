@@ -7,7 +7,7 @@ import {
     octWidth,
     LED_YELLOW,
     HOVER_COLOR,
-    LIGHTGREY,
+    LED_HOUSING_COLOR,
 } from '../constants';
 
 export default function LED({ x, y, color, inSeries, isParentHovered, onPointerDown }) {
@@ -34,7 +34,7 @@ export default function LED({ x, y, color, inSeries, isParentHovered, onPointerD
 
         // housing
         g.clear()
-        g.beginFill(LIGHTGREY)
+        g.beginFill(LED_HOUSING_COLOR)
         g.moveTo(1 * halfScaleFactor, 0 * halfScaleFactor)
         g.lineTo((1 + root2) * halfScaleFactor, 0 * halfScaleFactor)
         g.lineTo((1 + root2 + 1) * halfScaleFactor, 1 * halfScaleFactor)

@@ -1,8 +1,7 @@
 export const root2 = Math.SQRT2;
 
 // mobile; assumes gutter and scalefactor are the same
-// export const stageWidth = window.innerWidth;
-export const stageWidth = 440;
+export const stageWidth = window.innerWidth < 440 ? window.innerWidth : 440;
 
 // really, grid width
 // walls take up the edge of the grid
@@ -30,9 +29,14 @@ export const LED_RED = "0xFF7763";
 export const LED_WHITE = "0xffffff";
 export const LED_YELLOW = "0xFFDD32";
 
-export const OCTAGON_DEFAULT_COLOR = "0x5f5f5f";
+export const OCTAGON_DEFAULT_COLOR = "0x4f4f4f";
 export const OCTAGON_TERMINAL_COLOR = "0xff0000";
 export const HOVER_COLOR = "0xBDFFDF"
 
-export const LIGHTGREY = "0xA2A2A2";
+export const LED_HOUSING_COLOR = "0xA2A2A2";
 export const WHITE = "0xffffff"
+
+// high contrast version
+
+// export const OCTAGON_DEFAULT_COLOR = "0x000000";
+// export const LED_HOUSING_COLOR = "0x5f5f5f";
