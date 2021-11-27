@@ -31,6 +31,7 @@ export const LED_WHITE = "0xffffff";
 export const LED_YELLOW = "0xFFDD32";
 
 export const OCTAGON_DEFAULT_COLOR = "0x5f5f5f";
+export const OCTAGON_TERMINAL_COLOR = "0xff0000";
 export const HOVER_COLOR = "0xBDFFDF"
 
 export const LIGHTGREY = "0xA2A2A2";

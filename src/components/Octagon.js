@@ -9,9 +9,10 @@ import {
   scaleFactor,
   octWidth,
   OCTAGON_DEFAULT_COLOR,
+  OCTAGON_TERMINAL_COLOR
 } from '../constants';
 
-export default function Octagon({ x, y, indexX, indexY, onBuild, inSeries, led }) {
+export default function Octagon({ x, y, indexX, indexY, onBuild, inSeries, isTerminal, led }) {
 
     const [isHovered, setIsHovered] = React.useState(false)
 
@@ -22,7 +23,7 @@ export default function Octagon({ x, y, indexX, indexY, onBuild, inSeries, led }
 
     const drawOctagon = React.useCallback(g => {
         g.clear()
-        g.beginFill(OCTAGON_DEFAULT_COLOR)
+        g.beginFill(isTerminal ? OCTAGON_TERMINAL_COLOR : OCTAGON_DEFAULT_COLOR)
         g.moveTo(1 * scaleFactor, 0 * scaleFactor)
         g.lineTo((1 + root2) * scaleFactor, 0 * scaleFactor)
         g.lineTo((1 + root2 + 1) * scaleFactor, 1 * scaleFactor)
@@ -35,7 +36,7 @@ export default function Octagon({ x, y, indexX, indexY, onBuild, inSeries, led }
         g.lineTo(0 * scaleFactor, 1 * scaleFactor)
         g.lineTo(1 * scaleFactor, 0 * scaleFactor)
         g.endFill()
-    }, [])
+    }, [isTerminal])
 
     return <>
         <Graphics

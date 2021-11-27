@@ -27,9 +27,7 @@ export default function Lightbeam({ series = [] }) {
         })
     })
 
-    return <Container x={0} y={0}>
-        <Graphics
-            draw={drawLightbeam}
-        />
-    </Container>
+    return <Graphics
+        draw={drawLightbeam}
+    />
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stage } from '@inlet/react-pixi';
+import { Container, Stage } from '@inlet/react-pixi';
 
 import Walls from './components/Walls';
 import Lightbeam from './components/Lightbeam';
@@ -28,14 +28,10 @@ export default function App() {
   }
 
   return <Stage width={stageWidth} height={stageHeight} options={{ backgroundColor: 0xa2a2a2, antialias: false }} >
-    <Walls anchor={{
-      x: 0,
-      y: 0
-    }} end={{
-      x: stageWidth,
-      y: stageHeight
-    }} />
-    <Lightbeam series={series} />
-    <Octastage onBuild={onBuild} series={series} />
+    <Container x={0} y={0}>
+      <Walls />
+      <Lightbeam series={series} />
+      <Octastage onBuild={onBuild} series={series} />
+    </Container>
   </Stage>
 };
