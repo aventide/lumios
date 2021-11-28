@@ -4,6 +4,7 @@ import { Container, Sprite, Stage } from '@inlet/react-pixi';
 import Walls from './components/Walls';
 import Lightbeam from './components/Lightbeam';
 import Octastage from './components/Octastage';
+import Button from './components/Button';
 
 import {
   stageWidth,
@@ -42,7 +43,7 @@ export default function App() {
       <Octastage onBuild={onBuild} series={series} />
     </Container>
     <Container x={0} y={spacer + stageHeight}>
-
+      <Button />
     </Container>
   </Stage>
 };
